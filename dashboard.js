@@ -29,15 +29,15 @@ async function loadUserData(uid) {
       
       // Update dragon status
       if (data.eggStatus === 'hatched') {
-        document.getElementById('dragonStatus').textContent = `🐉 ${data.dragonName || 'Unnamed Dragon'}`;
+        document.getElementById('dragonStatus').textContent = `Dragon: ${data.dragonName || 'Unnamed Dragon'}`;
       } else if (data.eggStatus === 'incubating') {
-        document.getElementById('dragonStatus').textContent = `🥚 Incubating (${data.eggSessionsRemaining || 10} sessions)`;
+        document.getElementById('dragonStatus').textContent = `Egg Incubating (${data.eggSessionsRemaining || 10} sessions)`;
       }
       
-      console.log('✅ User loaded:', data.email);
+      console.log('User loaded:', data.email);
     }
   } catch (error) {
-    console.error('❌ Error loading user:', error);
+    console.error('Error loading user:', error);
   }
 }
 
@@ -81,15 +81,15 @@ function createCampaignCard(id, campaign) {
   card.className = 'card-document';
   
   const iconMap = {
-    'Fantasy': '⚔️',
-    'Sci-Fi': '🚀',
-    'Cyberpunk': '⚡',
-    'Horror': '👻',
-    'Cozy': '🍃',
-    'Custom': '🎲'
+    'Fantasy': '[Fantasy]',
+    'Sci-Fi': '[Sci-Fi]',
+    'Cyberpunk': '[Cyber]',
+    'Horror': '[Horror]',
+    'Cozy': '[Cozy]',
+    'Custom': '[Custom]'
   };
-  
-  const icon = iconMap[campaign.system] || '🎲';
+
+  const icon = iconMap[campaign.system] || '[Game]';
   
   card.innerHTML = `
     <div class="flex justify-between items-start mb-4">
@@ -169,13 +169,13 @@ createForm.addEventListener('submit', async (e) => {
       lastSession: null
     });
     
-    console.log('✅ Campaign created:', campaignRef.id);
+    console.log('Campaign created:', campaignRef.id);
     
     // Close modal and refresh
     createModal.classList.add('hidden');
     createForm.reset();
     createBtn.disabled = false;
-    createBtn.textContent = '➕ Create Campaign';
+    createBtn.textContent = 'Create Campaign';
     
     loadCampaigns();
     
@@ -183,7 +183,7 @@ createForm.addEventListener('submit', async (e) => {
     console.error('Error creating campaign:', error);
     alert('Error creating campaign. Please try again.');
     createBtn.disabled = false;
-    createBtn.textContent = '➕ Create Campaign';
+    createBtn.textContent = 'Create Campaign';
   }
 });
 
