@@ -95,14 +95,14 @@ function displayCampaign() {
   
   // Set icon based on system
   const iconMap = {
-    'Fantasy': '⚔️',
-    'Sci-Fi': '🚀',
-    'Cyberpunk': '⚡',
-    'Horror': '👻',
-    'Cozy': '🍃',
-    'Custom': '🎲'
+    'Fantasy': '[Fantasy]',
+    'Sci-Fi': '[Sci-Fi]',
+    'Cyberpunk': '[Cyber]',
+    'Horror': '[Horror]',
+    'Cozy': '[Cozy]',
+    'Custom': '[Custom]'
   };
-  document.getElementById('campaignIcon').textContent = iconMap[campaignData.system] || '🎲';
+  document.getElementById('campaignIcon').textContent = iconMap[campaignData.system] || '[Game]';
 }
 
 // Load sessions
@@ -164,7 +164,7 @@ function createSessionItem(session) {
     ${session.actions && session.actions.length > 0 ? `
       <div class="mt-3 flex flex-wrap gap-2">
         ${session.actions.map(action => `
-          <span class="text-xs px-2 py-1 bg-emerald-100 text-emerald-700 rounded">✓ ${action}</span>
+          <span class="text-xs px-2 py-1 bg-emerald-100 text-emerald-700 rounded">${action}</span>
         `).join('')}
       </div>
     ` : ''}

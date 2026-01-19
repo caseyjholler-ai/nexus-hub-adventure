@@ -58,11 +58,11 @@ async function createUserInFirestore(user, hash) {
       lastLogin: serverTimestamp()
     });
     
-    console.log('✅ User created:', hash);
+    console.log('User created:', hash);
     return true;
     
   } catch (error) {
-    console.error('❌ Firestore error:', error);
+    console.error('Firestore error:', error);
     throw error;
   }
 }

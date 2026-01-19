@@ -27,8 +27,8 @@ async function loadProfile() {
       document.getElementById('profileEmail').textContent = usersCollection.email;
       document.getElementById('profileHash').textContent = usersCollection.portalHash;
       document.getElementById('profileCare').textContent = usersCollection.careBalance || 0;
-      document.getElementById('profileDragon').textContent = 
-        usersCollection.dragonId ? `🐉 ${usersCollection.dragonName}` : '🥚 Egg';
+      document.getElementById('profileDragon').textContent =
+        usersCollection.dragonId ? `Dragon: ${usersCollection.dragonName}` : 'Egg';
     }
     
   } catch (error) {
